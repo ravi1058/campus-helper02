@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Helper — Student Life in One Place</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Next-generation student command center: Free Hour Finder, Timetable, Finance Tracker, Study Hub, Innovation Sparks, and Opportunities Feed.">
+</head>
+<body>
+    <!-- Ambient Animated Glow Background Mesh -->
+    <div class="ambient-glow-layer" aria-hidden="true">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="app-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                </div>
+                <div class="brand-text-wrap">
+                    <span class="brand-title">Campus Helper</span>
+                    <span class="brand-subtitle-badge">Student OS • v2.4</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <span class="nav-section-label">Core Command</span>
+                
+                <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#timetable" class="nav-link" data-section="timetable">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Timetable & Hour Finder</span>
+                    <span class="nav-badge text-glow-cyan">AI Gap</span>
+                </a>
+
+                <a href="#finance" class="nav-link" data-section="finance">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <span>Finance Tracker</span>
+                </a>
+
+                <span class="nav-section-label">Academic & Growth</span>
+
+                <a href="#study" class="nav-link" data-section="study">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span>Study Hub</span>
+                </a>
+
+                <a href="#innovation" class="nav-link" data-section="innovation">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                    <span>Innovation Sparks</span>
+                    <span class="nav-badge">Kanban</span>
+                </a>
+
+                <a href="#news" class="nav-link" data-section="news">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span>Opportunities Feed</span>
+                </a>
+            </nav>
+
+            <!-- Student Profile Widget -->
+            <div class="sidebar-footer-profile">
+                <div class="profile-card">
+                    <div class="avatar-ring">
+                        <span>AV</span>
+                        <span class="status-dot-online" title="Online & Syncing"></span>
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Alex Vance</span>
+                        <span class="profile-major">CS & AI • Junior (Sem 5)</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Viewport -->
+        <main class="main-viewport">
+            <!-- Top Sticky Header -->
+            <header class="top-header">
+                <div class="flex items-center gap-4">
+                    <button class="btn-icon mobile-nav-toggle" id="sidebar-toggle-btn" aria-label="Toggle Navigation">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <div class="header-title-box">
+                        <h2 class="header-page-title" id="page-title-display">Dashboard Overview</h2>
+                        <span class="header-page-subtitle" id="page-subtitle-display">Real-time student snapshot & daily priorities</span>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <!-- Global Search Box -->
+                    <div class="global-search-container">
+                        <svg class="search-icon-inside" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="global-search-input" class="search-input-box" placeholder="Quick search anything..." autocomplete="off">
+                        <span class="search-kbd-hint">/</span>
+                        <div id="global-search-results" class="search-results-dropdown hidden"></div>
+                    </div>
+
+                    <!-- Campus Live Clock -->
+                    <div class="campus-clock-badge">
+                        <span class="clock-time" id="campus-live-clock">--:--:--</span>
+                        <span class="clock-date" id="campus-live-date">Oct 29, 2026</span>
+                    </div>
+
+                    <!-- Sound Toggle -->
+                    <button class="btn-icon" id="btn-toggle-sound" title="Toggle UI Sound Effects">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                    </button>
+
+                    <!-- Quick Add Button -->
+                    <button class="btn-primary" id="btn-header-quick-add">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <span>Quick Add</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Dynamic Content Container -->
+            <div class="page-content-container">
+
+                <!-- ==========================================
+                     VIEW 1: DASHBOARD / OVERVIEW
+                     ========================================== -->
+                <section id="section-dashboard" class="content-view-section">
+                    <!-- Hero Welcome Banner & How It Works Introduction -->
+                    <div class="dash-hero-banner floating-hero-card">
+                        <div class="hero-left">
+                            <div class="flex items-center gap-2 flex-wrap mb-2">
+                                <span class="hero-welcome-badge">
+                                    <span class="live-beacon"></span>
+                                    Fall Semester 2026 • Week 8
+                                </span>
+                                <span class="badge-tag" style="background: rgba(0, 242, 254, 0.12); color: var(--neon-cyan); border: 1px solid rgba(0, 242, 254, 0.35);">
+                                    ⚡ Fast Student OS Guide
+                                </span>
+                            </div>
+                            <h1 class="hero-heading">Welcome to <span class="text-glow-cyan">Campus Helper</span> 🚀</h1>
+                            <p class="hero-quote">
+                                <strong>Your All-in-One University Command Center:</strong> Engineered to streamline your semester in seconds. Automatically detect productive free study gaps between classes, track assignments and ticking exam deadlines, maintain spending caps, and incubate hackathon project sparks — all in one offline-ready dashboard.
+                            </p>
+                            <div class="hero-quick-actions flex gap-3 mt-3 flex-wrap">
+                                <button class="btn-primary btn-sm" onclick="App.navigateTo('timetable');">
+                                    <span>⚡ Open Free Hour Finder</span>
+                                </button>
+                                <button class="btn-secondary btn-sm" onclick="App.openModal('modal-how-it-works');">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                    <span>How It Works (Fast Tour)</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-status-chips">
+                            <div class="status-pill">
+                                <span class="label">Academic Standing</span>
+                                <span class="val text-cyan">Dean's List</span>
+                            </div>
+                            <div class="status-pill">
+                                <span class="label">Study Streak</span>
+                                <span class="val text-amber">🔥 14 Days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fast How It Works Workflow Strip -->
+                    <div class="how-it-works-strip glass-panel p-4">
+                        <div class="strip-header flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-glow-cyan font-bold text-sm uppercase tracking-wider">⚡ How Campus Helper Works Fast</span>
+                                <span class="text-xs text-muted">• 4 core automated loops for high-achieving students</span>
+                            </div>
+                            <button class="btn-text-link text-xs" onclick="App.openModal('modal-how-it-works');">Full Walkthrough ↗</button>
+                        </div>
+                        <div class="how-steps-grid">
+                            <div class="how-step-card" onclick="App.navigateTo('timetable');" title="Click to view Timetable & Gaps">
+                                <div class="step-badge-num">1</div>
+                                <div class="step-info">
+                                    <span class="step-title text-cyan">Find Free Study Gaps</span>
+                                    <p class="step-desc">Algorithm automatically detects empty windows between classes and prescribes targeted study tasks.</p>
+                                </div>
+                            </div>
+
+                            <div class="how-step-card" onclick="App.navigateTo('dashboard');" title="Click to view Priorities & Exams">
+                                <div class="step-badge-num">2</div>
+                                <div class="step-info">
+                                    <span class="step-title text-purple">Crush Daily Priorities</span>
+                                    <p class="step-desc">Interactive checklist + real-time ticking exam countdowns so deadlines never catch you off guard.</p>
+                                </div>
+                            </div>
+
+                            <div class="how-step-card" onclick="App.navigateTo('finance');" title="Click to view Budget Tracker">
+                                <div class="step-badge-num">3</div>
+                                <div class="step-info">
+                                    <span class="step-title text-emerald">Cap Monthly Spending</span>
+                                    <p class="step-desc">Log meals and transit in 5 seconds. Animated progress bars visually warn before you overspend.</p>
+                                </div>
+                            </div>
+
+                            <div class="how-step-card" onclick="App.navigateTo('innovation');" title="Click to view Innovation Board">
+                                <div class="step-badge-num">4</div>
+                                <div class="step-info">
+                                    <span class="step-title text-amber">Incubate Project Sparks</span>
+                                    <p class="step-desc">Kanban board to brainstorm, prototype, and ship hackathon ventures and tech fellowship apps.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Metrics Grid -->
+                    <div class="kpi-metrics-grid">
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box cyan">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Cumulative GPA</span>
+                                <span class="kpi-value" id="dash-stat-gpa">3.88 / 4.0</span>
+                                <span class="kpi-delta text-emerald">↑ +0.08 this term</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box purple">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Weekly Attendance</span>
+                                <span class="kpi-value" id="dash-stat-attendance">94.2%</span>
+                                <span class="kpi-delta text-cyan">Target: &gt;85%</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box emerald">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Free Hours Today</span>
+                                <span class="kpi-value text-emerald" id="dash-stat-free-hours">2h 45m</span>
+                                <span class="kpi-delta text-muted">Detected by Hour Finder</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box amber">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Budget Remaining</span>
+                                <span class="kpi-value" id="dash-stat-budget">$374.50</span>
+                                <span class="kpi-delta text-emerald">Safe pace: $18.50/day</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Main Two-Column Grid -->
+                    <div class="dashboard-main-grid">
+                        <!-- Left Column: Daily Priorities & Countdowns -->
+                        <div class="flex flex-col gap-6">
+                            <!-- Daily Priorities Widget -->
+                            <div class="widget-card glass-panel">
+                                <div class="widget-header">
+                                    <div class="widget-title-group">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                        <h3 class="widget-title">Daily Priorities</h3>
+                                    </div>
+                                    <div class="filter-pills-row">
+                                        <button class="filter-pill-btn priority-filter-btn active" data-filter="all">All</button>
+                                        <button class="filter-pill-btn priority-filter-btn" data-filter="pending">Pending</button>
+                                        <button class="filter-pill-btn priority-filter-btn" data-filter="completed">Done</button>
+                                    </div>
+                                </div>
+
+                                <!-- Progress Track -->
+                                <div class="priority-progress-bar">
+                                    <div class="flex justify-between text-xs text-muted mb-1">
+                                        <span>Completion Progress</span>
+                                        <span id="priority-progress-label">2/5 Completed (40%)</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill-bar bar-cyan" id="priority-progress-fill" style="width: 40%"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Priorities List Container -->
+                                <div class="priorities-list-wrap" id="dashboard-priorities-list">
+                                    <!-- Rendered dynamically via JS -->
+                                </div>
+
+                                <!-- Inline Quick Add Priority -->
+                                <form id="form-add-priority" class="quick-add-form">
+                                    <input type="text" name="priorityTitle" class="glass-input flex-1" placeholder="Add a new academic priority..." required>
+                                    <input type="text" name="priorityCourse" class="glass-input" style="width: 140px" placeholder="Course / Tag">
+                                    <select name="priorityLevel" class="glass-select">
+                                        <option value="high">High</option>
+                                        <option value="medium" selected>Med</option>
+                                        <option value="low">Low</option>
+                                    </select>
+                                    <input type="hidden" name="priorityDue" value="Today, 6:00 PM">
+                                    <button type="submit" class="btn-primary" style="padding: 8px 14px;">+ Add</button>
+                                </form>
+                            </div>
+
+                            <!-- Exam & Deadline Countdown Hub -->
+                            <div class="widget-card glass-panel">
+                                <div class="widget-header">
+                                    <div class="widget-title-group">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-coral)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        <h3 class="widget-title">Exams & Major Deadlines</h3>
+                                    </div>
+                                    <span class="badge-tag" style="background: rgba(255, 51, 102, 0.15); color: var(--neon-coral);">Live Clocks</span>
+                                </div>
+                                <div class="countdown-grid" id="dash-countdown-list">
+                                    <!-- Rendered dynamically with live ticking timers -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Schedule Snapshot & Smart Scratchpad -->
+                        <div class="flex flex-col gap-6">
+                            <!-- Next Class Snapshot -->
+                            <div class="widget-card glass-panel">
+                                <div class="widget-header">
+                                    <div class="widget-title-group">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-emerald)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        <h3 class="widget-title">Today's Schedule Focus</h3>
+                                    </div>
+                                    <button class="btn-text-link" onclick="App.navigateTo('timetable')">View All →</button>
+                                </div>
+                                <div id="dash-schedule-preview">
+                                    <!-- Dynamic class preview -->
+                                </div>
+                            </div>
+
+                            <!-- Smart Auto-Saving Scratchpad -->
+                            <div class="widget-card glass-panel">
+                                <div class="widget-header">
+                                    <div class="widget-title-group">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-amber)" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                        <h3 class="widget-title">Quick Scratchpad</h3>
+                                    </div>
+                                    <span class="text-xs text-muted" id="scratchpad-save-status">Auto-saved</span>
+                                </div>
+                                <div class="scratchpad-wrap">
+                                    <textarea id="dash-scratchpad-input" class="scratchpad-textarea" placeholder="Jot down quick thoughts, lecture reminders, or formulas... (saves automatically)"></textarea>
+                                    <div class="scratchpad-footer">
+                                        <div class="flex gap-2">
+                                            <button class="btn-icon" id="btn-copy-scratchpad" title="Copy to clipboard">
+                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                            </button>
+                                            <button class="btn-icon" id="btn-clear-scratchpad" title="Clear Scratchpad">
+                                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                            </button>
+                                        </div>
+                                        <span class="text-xs text-muted">Supports Markdown</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==========================================
+                     VIEW 2: TIMETABLE & "FREE HOUR FINDER"
+                     ========================================== -->
+                <section id="section-timetable" class="content-view-section hidden">
+                    <!-- Day Selector & Action Bar -->
+                    <div class="timetable-header-panel glass-panel">
+                        <div class="day-selector-pills" id="timetable-day-selector">
+                            <button class="day-pill active" data-day="Monday">Monday</button>
+                            <button class="day-pill" data-day="Tuesday">Tuesday</button>
+                            <button class="day-pill" data-day="Wednesday">Wednesday</button>
+                            <button class="day-pill" data-day="Thursday">Thursday</button>
+                            <button class="day-pill" data-day="Friday">Friday</button>
+                        </div>
+                        <button class="btn-primary" id="btn-add-class">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <span>Add Class</span>
+                        </button>
+                    </div>
+
+                    <!-- Timetable Metrics -->
+                    <div class="timetable-metrics-row" id="timetable-quick-metrics">
+                        <!-- Dynamically filled by TimetableModule -->
+                    </div>
+
+                    <!-- Flow Container: Scheduled Classes + Free Gap Highlights -->
+                    <div class="schedule-flow-container" id="timetable-schedule-flow">
+                        <!-- Interleaved class cards and detected free gaps rendered dynamically -->
+                    </div>
+                </section>
+
+                <!-- ==========================================
+                     VIEW 3: FINANCE TRACKER
+                     ========================================== -->
+                <section id="section-finance" class="content-view-section hidden">
+                    <!-- Budget KPI Cards -->
+                    <div class="finance-kpi-grid">
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box cyan">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Monthly Target Budget</span>
+                                <span class="kpi-value" id="finance-total-budget">$800.00</span>
+                                <span class="kpi-delta text-muted">Fixed Semester Allocation</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box coral">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Total Spent to Date</span>
+                                <span class="kpi-value text-coral" id="finance-total-spent">$425.50</span>
+                                <span class="kpi-delta text-muted" id="finance-overall-percentage">53% utilized</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box emerald">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 10"></polyline></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Remaining Balance</span>
+                                <span class="kpi-value text-emerald" id="finance-remaining">$374.50</span>
+                                <span class="kpi-delta text-emerald">Available until end of month</span>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card glass-panel hover-lift">
+                            <div class="kpi-icon-box amber">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Safe Daily Allowance</span>
+                                <span class="kpi-value text-amber" id="finance-daily-safe">$18.50/day</span>
+                                <span class="kpi-delta text-muted">16 days remaining</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overall Budget Progress Track -->
+                    <div class="glass-panel p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-white">Overall Monthly Spending Limit</span>
+                            <span class="text-xs text-muted">53.2% of $800.00 Spent</span>
+                        </div>
+                        <div class="progress-track" style="height: 10px;">
+                            <div class="progress-fill-bar bar-cyan" id="finance-overall-progress" style="width: 53.2%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Main Finance Columns: Categories Breakdown & Transactions -->
+                    <div class="finance-main-grid">
+                        <!-- Left: Category Spending Limits -->
+                        <div class="widget-card glass-panel">
+                            <div class="widget-header">
+                                <div class="widget-title-group">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                                    <h3 class="widget-title">Category Spending Limits</h3>
+                                </div>
+                                <span class="text-xs text-muted">Live Thresholds</span>
+                            </div>
+                            <div class="category-budget-list" id="finance-category-bars">
+                                <!-- Rendered dynamically with animated progress bars -->
+                            </div>
+                        </div>
+
+                        <!-- Right: Log New Expense & Transactions -->
+                        <div class="flex flex-col gap-6">
+                            <!-- Quick Log Expense Form -->
+                            <div class="widget-card glass-panel">
+                                <div class="widget-header">
+                                    <div class="widget-title-group">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-emerald)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                        <h3 class="widget-title">Log New Expense</h3>
+                                    </div>
+                                </div>
+                                <form id="form-add-expense" class="flex flex-col gap-3">
+                                    <input type="text" name="expenseTitle" class="glass-input" placeholder="Expense description (e.g. Campus Café)" required>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <input type="number" step="0.01" min="0.01" name="expenseAmount" class="glass-input" placeholder="Amount ($)" required>
+                                        <select name="expenseCategory" class="glass-select" required>
+                                            <option value="food">Cafeteria & Dining</option>
+                                            <option value="tech">Tech & Cloud</option>
+                                            <option value="books">Books & Supplies</option>
+                                            <option value="transit">Transit & Travel</option>
+                                            <option value="personal">Social & Campus</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn-primary w-full justify-center mt-1">
+                                        + Record Expense
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Transactions List -->
+                            <div class="widget-card glass-panel">
+                                <div class="widget-header">
+                                    <h3 class="widget-title">Recent Transactions</h3>
+                                    <div class="flex gap-2">
+                                        <select id="finance-filter-category" class="glass-select" style="padding: 4px 8px; font-size: 0.75rem;">
+                                            <option value="all">All Categories</option>
+                                            <option value="food">Dining</option>
+                                            <option value="tech">Tech</option>
+                                            <option value="books">Books</option>
+                                            <option value="transit">Transit</option>
+                                            <option value="personal">Social</option>
+                                        </select>
+                                        <button class="btn-icon" id="btn-reset-finance" title="Reset Demo Data">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="transactions-scroll-list" id="finance-transactions-list">
+                                    <!-- Rendered dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==========================================
+                     VIEW 4: STUDY HUB
+                     ========================================== -->
+                <section id="section-study" class="content-view-section hidden">
+                    <!-- Study Hub Sub Tabs -->
+                    <div class="flex justify-between items-center flex-wrap gap-4">
+                        <div class="study-nav-pills">
+                            <button class="study-subtab-btn active" data-tab="notes">Notes & Repository</button>
+                            <button class="study-subtab-btn" data-tab="materials">Free Materials Library</button>
+                            <button class="study-subtab-btn" data-tab="growth">Academic Growth & Tests</button>
+                        </div>
+                        <button class="btn-primary" onclick="App.openModal('modal-add-resource')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <span>Add Resource Link</span>
+                        </button>
+                    </div>
+
+                    <!-- SubTab 1: Course Notes & Links -->
+                    <div id="study-section-notes" class="flex flex-col gap-6">
+                        <!-- Filters & Search -->
+                        <div class="glass-panel p-4 flex justify-between items-center flex-wrap gap-4">
+                            <div class="flex gap-2 flex-wrap">
+                                <button class="filter-pill-btn course-filter-pill active" data-course="all">All Courses</button>
+                                <button class="filter-pill-btn course-filter-pill" data-course="CS301">CS301 Algorithms</button>
+                                <button class="filter-pill-btn course-filter-pill" data-course="AI402">AI402 Deep Learning</button>
+                                <button class="filter-pill-btn course-filter-pill" data-course="OS204">OS204 Systems</button>
+                                <button class="filter-pill-btn course-filter-pill" data-course="MATH220">MATH220 Lin Alg</button>
+                            </div>
+                            <div class="relative" style="width: 240px;">
+                                <input type="text" id="study-resource-search" class="glass-input w-full" placeholder="Search notes or tags...">
+                            </div>
+                        </div>
+
+                        <!-- Resources Grid -->
+                        <div class="study-resources-grid" id="study-resources-grid">
+                            <!-- Rendered dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- SubTab 2: Free Study Materials Library -->
+                    <div id="study-section-materials" class="flex flex-col gap-6 hidden">
+                        <div class="glass-panel p-6">
+                            <h3 class="text-glow-cyan text-lg mb-2">Verified Free Open-Source Student Materials</h3>
+                            <p class="text-muted text-sm">Curated repositories, legal free digital textbooks, Stanford/MIT cheatsheets, and student tooling grants.</p>
+                        </div>
+
+                        <div class="study-resources-grid">
+                            <div class="resource-card glass-panel hover-lift">
+                                <div class="res-top">
+                                    <span class="badge-course">MIT OpenCourseWare</span>
+                                    <span class="badge-type">Full Courseware</span>
+                                </div>
+                                <h4 class="res-title">MIT 6.006: Introduction to Algorithms</h4>
+                                <p class="res-desc">Official course notes, recitation handouts, and complete video lectures by Prof. Erik Demaine & Dr. Jason Ku.</p>
+                                <div class="res-tags">
+                                    <span class="res-tag">#DynamicProgramming</span>
+                                    <span class="res-tag">#GraphAlgorithms</span>
+                                </div>
+                                <div class="res-actions">
+                                    <a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/" target="_blank" rel="noopener noreferrer" class="btn-res-link hover-cyan">
+                                        Access Free Materials ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="resource-card glass-panel hover-lift">
+                                <div class="res-top">
+                                    <span class="badge-course">Stanford AI</span>
+                                    <span class="badge-type">VIP Cheatsheet</span>
+                                </div>
+                                <h4 class="res-title">Stanford CS229: Machine Learning Super Cheatsheet</h4>
+                                <p class="res-desc">Famous concise reference sheets by Afshine Amidi summarizing deep learning, backpropagation, and kernel methods.</p>
+                                <div class="res-tags">
+                                    <span class="res-tag">#NeuralNets</span>
+                                    <span class="res-tag">#LossFunctions</span>
+                                </div>
+                                <div class="res-actions">
+                                    <a href="https://stanford.edu/~shervine/teaching/cs-229/" target="_blank" rel="noopener noreferrer" class="btn-res-link hover-cyan">
+                                        View Cheatsheet ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="resource-card glass-panel hover-lift">
+                                <div class="res-top">
+                                    <span class="badge-course">UW Madison</span>
+                                    <span class="badge-type">Free Textbook</span>
+                                </div>
+                                <h4 class="res-title">Operating Systems: Three Easy Pieces (OSTEP)</h4>
+                                <p class="res-desc">The gold standard modern OS book by Remzi & Andrea Arpaci-Dusseau, available completely free online chapter-by-chapter.</p>
+                                <div class="res-tags">
+                                    <span class="res-tag">#Virtualization</span>
+                                    <span class="res-tag">#Concurrency</span>
+                                </div>
+                                <div class="res-actions">
+                                    <a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" rel="noopener noreferrer" class="btn-res-link hover-cyan">
+                                        Read Free Online ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="resource-card glass-panel hover-lift">
+                                <div class="res-top">
+                                    <span class="badge-course">Harvard University</span>
+                                    <span class="badge-type">Foundations</span>
+                                </div>
+                                <h4 class="res-title">Harvard CS50: Computer Science Foundations</h4>
+                                <p class="res-desc">Full open curriculum covering C, memory management, Python, SQL, and web technologies with interactive sandboxes.</p>
+                                <div class="res-tags">
+                                    <span class="res-tag">#Pointers</span>
+                                    <span class="res-tag">#Algorithms</span>
+                                </div>
+                                <div class="res-actions">
+                                    <a href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener noreferrer" class="btn-res-link hover-cyan">
+                                        Explore Portal ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="resource-card glass-panel hover-lift">
+                                <div class="res-top">
+                                    <span class="badge-course">GitHub Education</span>
+                                    <span class="badge-type">Tooling Perks</span>
+                                </div>
+                                <h4 class="res-title">GitHub Student Developer Pack Perks</h4>
+                                <p class="res-desc">$10,000+ worth of free cloud credits (DigitalOcean, Azure), free JetBrains IDE licenses, Figma Pro, and free domains.</p>
+                                <div class="res-tags">
+                                    <span class="res-tag">#FreeCloud</span>
+                                    <span class="res-tag">#JetBrains</span>
+                                </div>
+                                <div class="res-actions">
+                                    <a href="https://education.github.com/pack" target="_blank" rel="noopener noreferrer" class="btn-res-link hover-cyan">
+                                        Claim Benefits ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="resource-card glass-panel hover-lift">
+                                <div class="res-top">
+                                    <span class="badge-course">Immersive Math</span>
+                                    <span class="badge-type">Interactive WebGL</span>
+                                </div>
+                                <h4 class="res-title">Interactive 3D Linear Algebra Visualizer</h4>
+                                <p class="res-desc">Rotate matrices, hyperplanes, eigenvectors, and null spaces directly in your browser using interactive WebGL models.</p>
+                                <div class="res-tags">
+                                    <span class="res-tag">#Eigenvectors</span>
+                                    <span class="res-tag">#Determinants</span>
+                                </div>
+                                <div class="res-actions">
+                                    <a href="https://immersivemath.com/ila/index.html" target="_blank" rel="noopener noreferrer" class="btn-res-link hover-cyan">
+                                        Launch Applet ↗
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SubTab 3: Academic Growth & Test Center -->
+                    <div id="study-section-growth" class="flex flex-col gap-6 hidden">
+                        <div class="growth-section-grid">
+                            <!-- Left: Circular Progress Indicators -->
+                            <div class="widget-card glass-panel">
+                                <div class="widget-header">
+                                    <div class="widget-title-group">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        <h3 class="widget-title">Course Mastery Indicators</h3>
+                                    </div>
+                                    <span class="text-xs text-muted">Circular Progress Tracking</span>
+                                </div>
+
+                                <div class="circular-progress-grid" id="study-circular-progress-grid">
+                                    <!-- Rendered dynamically with SVG circular rings -->
+                                </div>
+                            </div>
+
+                            <!-- Right: Test Center Card -->
+                            <div class="test-center-feature-card">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-2xl">⚡</span>
+                                    <div>
+                                        <h4 class="text-white text-base font-bold">Academic Sprint Quiz Center</h4>
+                                        <span class="text-xs text-cyan">Instant Knowledge Calibration</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-secondary leading-relaxed">
+                                    Challenge yourself with a rapid 5-question sprint covering Algorithms, Deep Learning, Operating Systems, and Linear Algebra. Receive instant scoring, feedback, and earn Academic Growth XP!
+                                </p>
+                                <div class="flex items-center gap-3 p-3 bg-black/40 rounded-lg border border-white/10 text-xs">
+                                    <span>⏱️ 3 Mins Limit</span>
+                                    <span>•</span>
+                                    <span>🎯 5 Questions</span>
+                                    <span>•</span>
+                                    <span>🌟 +100 Max XP</span>
+                                </div>
+                                <button class="btn-primary w-full justify-center mt-2" id="btn-start-test">
+                                    Launch Sprint Test 🚀
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==========================================
+                     VIEW 5: INNOVATION & WORK (KANBAN)
+                     ========================================== -->
+                <section id="section-innovation" class="content-view-section hidden">
+                    <!-- Kanban Stats & Action Bar -->
+                    <div class="flex justify-between items-center flex-wrap gap-4">
+                        <div class="kanban-stats-bar glass-panel p-3 flex-1 flex gap-6">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-muted">Total Sparks</span>
+                                <span class="font-bold text-white text-base" id="count-ideas-all">6</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-muted">💡 Ideation</span>
+                                <span class="font-bold text-cyan text-base" id="count-ideas-ideation">2</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-muted">⚙️ Prototyping</span>
+                                <span class="font-bold text-purple text-base" id="count-ideas-progress">2</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-muted">🚀 Pitch Ready</span>
+                                <span class="font-bold text-emerald text-base" id="count-ideas-ready">2</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <input type="text" id="innovation-search-input" class="glass-input" style="width: 220px;" placeholder="Search sparks or tags...">
+                            <button class="btn-primary" id="btn-add-idea">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                <span>+ New Spark</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Kanban Columns Grid -->
+                    <div class="kanban-board-grid">
+                        <!-- Column 1: Ideation -->
+                        <div class="kanban-column">
+                            <div class="column-header">
+                                <div class="col-title-group">
+                                    <span class="text-lg">💡</span>
+                                    <h4 class="col-title">Ideation & Sparks</h4>
+                                </div>
+                                <span class="col-count-badge" id="badge-col-ideation">Active</span>
+                            </div>
+                            <div class="column-cards-container" id="kanban-col-ideation">
+                                <!-- Rendered dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Column 2: In Progress -->
+                        <div class="kanban-column">
+                            <div class="column-header">
+                                <div class="col-title-group">
+                                    <span class="text-lg">⚙️</span>
+                                    <h4 class="col-title">In Progress & Prototyping</h4>
+                                </div>
+                                <span class="col-count-badge" id="badge-col-progress">Building</span>
+                            </div>
+                            <div class="column-cards-container" id="kanban-col-progress">
+                                <!-- Rendered dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Column 3: Ready / Shipped -->
+                        <div class="kanban-column">
+                            <div class="column-header">
+                                <div class="col-title-group">
+                                    <span class="text-lg">🚀</span>
+                                    <h4 class="col-title">Ready / Shipped / Pitch</h4>
+                                </div>
+                                <span class="col-count-badge" id="badge-col-ready">Launch</span>
+                            </div>
+                            <div class="column-cards-container" id="kanban-col-ready">
+                                <!-- Rendered dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==========================================
+                     VIEW 6: NEWS & OPPORTUNITIES FEED
+                     ========================================== -->
+                <section id="section-news" class="content-view-section hidden">
+                    <!-- Filter Chips & Search -->
+                    <div class="opp-filter-row glass-panel p-4 flex-wrap">
+                        <div class="opp-filter-chips flex-wrap">
+                            <button class="opp-filter-chip active" data-category="all">All Opportunities</button>
+                            <button class="opp-filter-chip" data-category="hackathon">🏆 Hackathons</button>
+                            <button class="opp-filter-chip" data-category="internship">💼 Tech Internships</button>
+                            <button class="opp-filter-chip" data-category="research">🔬 Research Labs</button>
+                            <button class="opp-filter-chip" data-category="event">🎓 Campus Events</button>
+                            <button class="opp-filter-chip" data-category="bookmarked">⭐ Bookmarked</button>
+                        </div>
+                        <div class="relative" style="width: 250px;">
+                            <input type="text" id="opp-search-input" class="glass-input w-full" placeholder="Search internships, sponsors...">
+                        </div>
+                    </div>
+
+                    <!-- Opportunities Feed Grid -->
+                    <div class="opp-feed-grid" id="news-opportunities-feed">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ==========================================
+         MODALS & DIALOGS
+         ========================================== -->
+
+    <!-- Modal: Quick Add Hub -->
+    <div class="modal-overlay" id="modal-quick-add">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title-glow">⚡ Quick Action Dispatcher</h3>
+                <button class="btn-close-modal">×</button>
+            </div>
+            <p class="text-sm text-muted mb-4">Choose what you would like to log to your Campus Helper command center:</p>
+            <div class="grid grid-cols-3 gap-3 mb-4">
+                <button class="suggestion-card text-center" onclick="App.closeModal('modal-quick-add'); App.navigateTo('dashboard'); document.querySelector('[name=priorityTitle]').focus();">
+                    <span class="text-2xl mb-1">📝</span>
+                    <span class="font-bold text-white text-xs">Priority Task</span>
+                </button>
+                <button class="suggestion-card text-center" onclick="App.closeModal('modal-quick-add'); App.navigateTo('finance'); document.querySelector('[name=expenseTitle]').focus();">
+                    <span class="text-2xl mb-1">💳</span>
+                    <span class="font-bold text-white text-xs">Expense Log</span>
+                </button>
+                <button class="suggestion-card text-center" onclick="App.closeModal('modal-quick-add'); App.openModal('modal-add-idea');">
+                    <span class="text-2xl mb-1">💡</span>
+                    <span class="font-bold text-white text-xs">Project Spark</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Add Class to Schedule -->
+    <div class="modal-overlay" id="modal-add-class">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title-glow">Add Class to Timetable</h3>
+                <button class="btn-close-modal">×</button>
+            </div>
+            <form id="form-add-class" class="flex flex-col gap-4">
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-muted">Class Name</label>
+                    <input type="text" name="className" class="glass-input" placeholder="e.g. Distributed Database Systems" required>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Course Code</label>
+                        <input type="text" name="classCode" class="glass-input" placeholder="CS405" required>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Day of Week</label>
+                        <select name="classDay" class="glass-select">
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Start Time</label>
+                        <input type="time" name="classStart" class="glass-input" required>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">End Time</label>
+                        <input type="time" name="classEnd" class="glass-input" required>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Room / Hall</label>
+                        <input type="text" name="classRoom" class="glass-input" placeholder="Auditorium 2" required>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Professor / TA</label>
+                        <input type="text" name="classProf" class="glass-input" placeholder="Dr. Reynolds" required>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-muted">Color Accent</label>
+                    <select name="classColor" class="glass-select">
+                        <option value="cyan">Neon Cyan</option>
+                        <option value="purple">Electric Purple</option>
+                        <option value="emerald">Neon Emerald</option>
+                        <option value="amber">Warm Amber</option>
+                        <option value="rose">Neon Rose</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary w-full justify-center mt-2">
+                    Save Class & Recalibrate Gaps
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Add Study Resource -->
+    <div class="modal-overlay" id="modal-add-resource">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title-glow">Add Study Resource Link</h3>
+                <button class="btn-close-modal">×</button>
+            </div>
+            <form id="form-add-resource" class="flex flex-col gap-4">
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-muted">Resource Title</label>
+                    <input type="text" name="resTitle" class="glass-input" placeholder="e.g. Bellman-Ford Shortest Path Cheatsheet" required>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Course</label>
+                        <input type="text" name="resCourse" class="glass-input" placeholder="CS301" required>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Resource Type</label>
+                        <select name="resType" class="glass-select">
+                            <option value="PDF">PDF Document</option>
+                            <option value="Cheatsheet">Cheatsheet</option>
+                            <option value="GitHub Repo">GitHub Repo</option>
+                            <option value="Video Lecture">Video Lecture</option>
+                            <option value="Interactive">Interactive App</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Category</label>
+                        <select name="resCategory" class="glass-select">
+                            <option value="Lecture Notes">Lecture Notes</option>
+                            <option value="Exam Prep">Exam Prep</option>
+                            <option value="Reference Book">Reference Book</option>
+                            <option value="Lab Guide">Lab Guide</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Tags (comma separated)</label>
+                        <input type="text" name="resTags" class="glass-input" placeholder="DP, Graphs, Proofs">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-muted">Resource URL / Link</label>
+                    <input type="url" name="resUrl" class="glass-input" placeholder="https://..." required>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-muted">Summary Description</label>
+                    <textarea name="resDesc" class="glass-input" rows="2" placeholder="Key takeaways and why it is useful..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full justify-center mt-2">
+                    Save to Study Hub
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Add Innovation Idea -->
+    <div class="modal-overlay" id="modal-add-idea">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title-glow">💡 Spark a New Project Idea</h3>
+                <button class="btn-close-modal">×</button>
+            </div>
+            <form id="form-add-idea" class="flex flex-col gap-4">
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-muted">Project / Idea Title</label>
+                    <input type="text" name="ideaTitle" class="glass-input" placeholder="e.g. Quad Autonomous Delivery Drone" required>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-muted">Idea Description & Spark</label>
+                    <textarea name="ideaDesc" class="glass-input" rows="3" placeholder="Explain the problem, technology stack, and student impact..." required></textarea>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Initial Stage</label>
+                        <select name="ideaColumn" class="glass-select">
+                            <option value="ideation">💡 Ideation</option>
+                            <option value="progress">⚙️ Prototyping</option>
+                            <option value="ready">🚀 Pitch Ready</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Priority</label>
+                        <select name="ideaPriority" class="glass-select">
+                            <option value="high">High</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted">Tags (comma)</label>
+                        <input type="text" name="ideaTags" class="glass-input" placeholder="AI, IoT, App">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary w-full justify-center mt-2">
+                    Add Spark to Kanban Board 🚀
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Interactive Quiz Runner -->
+    <div class="modal-overlay" id="modal-quiz">
+        <div class="modal-dialog" style="max-width: 620px;">
+            <div class="modal-header">
+                <div class="flex items-center gap-3">
+                    <span class="live-beacon"></span>
+                    <h3 class="modal-title-glow">Academic Sprint Quiz</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono text-cyan bg-cyan-950/60 px-2 py-1 rounded border border-cyan-800" id="quiz-timer-display">3:00</span>
+                    <button class="btn-close-modal">×</button>
+                </div>
+            </div>
+            <div id="quiz-modal-body">
+                <!-- Injected dynamically by StudyModule.renderQuizStep() -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: How It Works Fast Walkthrough -->
+    <div class="modal-overlay" id="modal-how-it-works">
+        <div class="modal-dialog" style="max-width: 640px;">
+            <div class="modal-header">
+                <div class="flex items-center gap-3">
+                    <span class="live-beacon"></span>
+                    <h3 class="modal-title-glow">⚡ How Campus Helper Works Fast</h3>
+                </div>
+                <button class="btn-close-modal">×</button>
+            </div>
+            <div class="flex flex-col gap-4">
+                <p class="text-sm text-secondary leading-relaxed">
+                    Campus Helper is engineered for instant clarity and zero bloat. Here is the fast workflow to master your semester in under 60 seconds:
+                </p>
+                <div class="flex flex-col gap-3">
+                    <div class="glass-panel p-3 flex gap-3 items-start hover-lift" onclick="App.closeModal('modal-how-it-works'); App.navigateTo('timetable');" style="cursor: pointer;">
+                        <span class="text-2xl">⚡</span>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h4 class="text-white text-sm font-bold">1. Free Hour Finder & Timetable</h4>
+                                <span class="badge-tag course-tag">Unique Twist</span>
+                            </div>
+                            <p class="text-xs text-muted mt-1">Select your day. The system scans class start/end times, highlights gaps $\ge 30$ mins, and delivers targeted 30m/60m/90m study sprints (flashcards, quiet library drills, or gym breaks).</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-3 flex gap-3 items-start hover-lift" onclick="App.closeModal('modal-how-it-works'); App.navigateTo('dashboard');" style="cursor: pointer;">
+                        <span class="text-2xl">🎯</span>
+                        <div>
+                            <h4 class="text-white text-sm font-bold">2. Priorities & Exam Countdowns</h4>
+                            <p class="text-xs text-muted mt-1">Keep daily coursework in check with satisfaction checkmarks. Live ticking countdown clocks track final exams down to the second.</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-3 flex gap-3 items-start hover-lift" onclick="App.closeModal('modal-how-it-works'); App.navigateTo('finance');" style="cursor: pointer;">
+                        <span class="text-2xl">💳</span>
+                        <div>
+                            <h4 class="text-white text-sm font-bold">3. Campus Finance Tracker</h4>
+                            <p class="text-xs text-muted mt-1">Log meal and transit expenses in 3 seconds. Animated category progress bars dynamically change color to prevent mid-month budget depletion.</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-3 flex gap-3 items-start hover-lift" onclick="App.closeModal('modal-how-it-works'); App.navigateTo('study');" style="cursor: pointer;">
+                        <span class="text-2xl">📚</span>
+                        <div>
+                            <h4 class="text-white text-sm font-bold">4. Study Hub & Test Center</h4>
+                            <p class="text-xs text-muted mt-1">Access verified free textbooks (MIT, Stanford, OSTEP), monitor circular course progress dials, and challenge your brain with 5-question sprint quizzes.</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-3 flex gap-3 items-start hover-lift" onclick="App.closeModal('modal-how-it-works'); App.navigateTo('innovation');" style="cursor: pointer;">
+                        <span class="text-2xl">💡</span>
+                        <div>
+                            <h4 class="text-white text-sm font-bold">5. Innovation Kanban & Opportunities</h4>
+                            <p class="text-xs text-muted mt-1">Move your startup ideas and hackathon prototypes across stages with one click, while tracking top tech internships and grants.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pt-2">
+                    <span class="text-xs text-cyan font-mono">Tip: Press "/" anytime to quick-search</span>
+                    <button class="btn-primary" onclick="App.closeModal('modal-how-it-works');">Got it, Let's Go! 🚀</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Opportunity Detail & Quick Apply -->
+    <div class="modal-overlay" id="modal-apply">
+        <div class="modal-dialog" style="max-width: 600px;">
+            <div class="modal-header">
+                <span class="badge-opp-category internship">Opportunity Details</span>
+                <button class="btn-close-modal">×</button>
+            </div>
+            <div id="modal-apply-body">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Core Modular Scripts (Zero External Dependencies) -->
+    <script src="js/data.js"></script>
+    <script src="js/timetable.js"></script>
+    <script src="js/finance.js"></script>
+    <script src="js/study.js"></script>
+    <script src="js/innovation.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
